@@ -1,0 +1,59 @@
+Hamiltonian Path
+
+1.Can be solved using backtracking
+2.NP hard problem
+3.Not significant for graph containing connected components
+4.Cycle must be distinct there must not exist any two combiantions that
+  are same in the vertices relative order other than terminal
+5.Graph containing articulation vertex don't conatain any cycles.
+  if they do:
+      they have to visit that node twice and that is only permitted
+      for the terminal vertex.
+      
+      if we consider it as terminal vertex:
+             we would either travel left or right of that articulation vertex.
+             And upon the second encounter of this vertex...
+             The cycle is supposed to end...well then it is not true in this 
+             case.Since we would travel any one of them in best case
+6.Graphs having pendant vertices aalso donty contain any cycles
+  If they did they have to be visited but inclusion of them will make the   circuit broken.And cycle is rather a closed path.
+7.For avoiding the duplicate cycles the starting veretx is fixed by setting
+  its visited vertex to 1.
+8.It runs DFS from each vertex in a graph.
+9.Bounding function:will be used to kill live nodes without generating all their   children.There would be a condition that will make it happen.
+10.From a single node it tries to explore all the vertices .Will keep only
+   the needed ones that can be done by using 
+   ADJACENCY MATRIX:
+   we will reefer to it and check it out that single time appearing assumed    veretx has its edge between these nodes or not
+11.we would restrict the overall algorithm by using the bounding function
+   in bounding functions we check for following condition.
+   1.There must be no duplicates 
+   2.Whenever we take a vertex there must be an edge from the previous vertex
+   3.If we are at last vertex then there must be an edge to first starting      vertex.There must be a cycle forming condition.
+
+
+12.Bounding Function
+   
+   def NextVertex(k):
+       while(true):
+         x[k]=(x[k]+1)%(n+1)
+         if x[k]==0: return
+ 	 if g[x[k-1][x[k]]!=0
+              for j in range(1,k-1):
+                 if x[j]==x[k]:
+                          break  
+	         if j==k:
+                    if k<=n and g[x[n]][x[1]]!=0:
+                       return 
+13.def Hamiltonian(k):
+       while true:
+             NextVertex(k)
+             if x[k]==0:
+                return 
+             if k==n:
+                print x
+             else 
+                Hamiltonian(k+1)
+
+14.It just tries all the possible combinations of vertex after choosing a vertex.
+   Complexity :O(n^n) precisely O((n-1)!)
